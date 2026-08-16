@@ -1,0 +1,6 @@
+# PHP / Composer build artefacts
+/vendor/
+composer.lock
+.phpunit.result.cache
+.phpunit.cache/
+/build/
