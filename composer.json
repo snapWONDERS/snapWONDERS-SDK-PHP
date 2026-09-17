@@ -1,0 +1,45 @@
+{
+    "name": "snapwonders/sdk",
+    "description": "Official PHP SDK for the snapWONDERS API — steganography (hide & reveal), forensic media analysis, and format conversion.",
+    "type": "library",
+    "keywords": ["steganography", "hide-and-reveal", "forensics", "image-forensics", "media-analysis", "api-client", "mcp", "snapwonders", "vaultify", "c2pa", "content-credentials", "ai-image-detection", "image-conversion", "watermark-detection"],
+    "homepage": "https://snapwonders.com/developers#sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kenneth Springer @ snapWONDERS",
+            "email": "kenneth@snapwonders.com",
+            "homepage": "https://kennethbspringer.au"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/snapWONDERS/snapWONDERS-SDK-PHP/issues",
+        "source": "https://github.com/snapWONDERS/snapWONDERS-SDK-PHP",
+        "docs": "https://snapwonders.com/api"
+    },
+    "require": {
+        "php": ">=8.2",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SnapWonders\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SnapWonders\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}
