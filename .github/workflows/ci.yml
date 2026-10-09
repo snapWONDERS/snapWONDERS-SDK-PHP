@@ -1,0 +1,32 @@
+name: CI
+
+# Runs on the standalone snapWONDERS-SDK-PHP repo (this file becomes .github/workflows/ci.yml there
+# after `git subtree split`). Offline tests need no API key.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test — PHP ${{ matrix.php-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ["8.2", "8.3", "8.4"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: curl, json
+          coverage: none
+      - name: Validate composer.json
+        run: composer validate --strict
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+      - name: Offline test suite
+        run: composer test
